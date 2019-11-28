@@ -1,0 +1,32 @@
+/* this code removes duplicates from an array and stores the values in another array, without duplicates */
+#include<stdio.h>
+int main()
+{
+    int numberOfElements,i,j,k,l=0,m,duplicate;
+    printf("Enter the number of elements in the array : ");
+    scanf("%d",&numberOfElements);
+    int initialArray[numberOfElements];
+    int FinalArray[numberOfElements];
+    printf("Enter numbers in array : ");
+    for(i=0;i<numberOfElements;i++)
+    {
+        scanf("%d",&initialArray[i]);
+    }
+    for(j=0;j<numberOfElements;j++)
+    {
+       for(k=0;k<numberOfElements;k++)
+       {
+           if(initialArray[j]==initialArray[k] && j!=k)
+            initialArray[k]=0;
+       }
+       if(initialArray[j]!=0)
+       {
+           FinalArray[l]=initialArray[j];
+           l++;
+       }
+    }
+     for(m=0;m<l;m++)
+    {
+        printf("%d \n",FinalArray[m]);
+    }
+}
