@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main ()
+{
+    char str1[50],str2[50],str3[(strlen(str1))+(strlen(str2))];
+    int i=0,j=0,k=0,a,b;
+    FILE *fptr1,*fptr2,*foutput;
+    fptr1=fopen("assignment 3 task 3 file 1.txt","r");
+    if(fptr1==NULL)
+    {
+        printf("error in opening file 1");
+    }
+    fgets(str1,50,fptr1);
+    fclose(fptr1);
+    fptr2=fopen("assignment 3 task3 file 2.txt","r");
+    if(fptr2==NULL)
+    {
+        printf("error in opening file 2");
+    }
+    fgets(str2,50,fptr2);
+    a=strlen(str2)-strlen(str1);
+    while(k<(2*(strlen(str1))))
+    {
+        if((k%2)==0)
+        {
+            str3[k]=str1[i];
+            i++;
+        }
+        else
+        {
+            str3[k]=str2[j];
+            j++;
+        }
+        k++;
+    }
+    for(b=0;b<a;b++)
+    {
+        str3[k]=str2[j];
+        k++;j++;
+    }
+    str3[k]='\0';
+    foutput=fopen("assignment 3 task 3 output","w");
+    fputs(str3,foutput);
+    fclose(fptr2);
